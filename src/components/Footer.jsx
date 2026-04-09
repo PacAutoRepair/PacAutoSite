@@ -5,29 +5,33 @@ import { shopInfo } from '../data/shopInfo';
 export default function Footer() {
   return (
     <footer className="bg-navy text-cream">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
           {/* Column 1: Logo + Tagline */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <img
-                src="logo.svg"
+                src="logo.png"
                 alt="Pacific Auto Repair"
-                className="h-10 w-10 object-contain"
+                className="h-11 w-11 object-contain"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
               <span className="font-playfair font-bold text-white text-lg">
                 Pacific Auto Repair
               </span>
             </div>
-            <p className="text-cream text-sm leading-relaxed opacity-80">
-              Honest repairs. Fair prices. Your neighborhood shop.
+            <p className="text-cream/70 text-sm leading-relaxed">
+              Honest repairs. Fair prices.<br />
+              Your neighborhood auto shop since 2004.
+            </p>
+            <p className="font-hand text-gold text-lg">
+              — Shawn &amp; Luis
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
           <div className="flex flex-col gap-3">
-            <h4 className="font-playfair font-bold text-white text-lg mb-1">Quick Links</h4>
+            <h4 className="font-playfair font-bold text-white text-lg mb-2">Quick Links</h4>
             {[
               { to: '/', label: 'Home' },
               { to: '/services', label: 'Services' },
@@ -37,7 +41,7 @@ export default function Footer() {
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-cream opacity-80 hover:opacity-100 text-sm transition-opacity"
+                className="text-cream/70 hover:text-gold text-sm transition-colors"
               >
                 {link.label}
               </Link>
@@ -46,23 +50,28 @@ export default function Footer() {
 
           {/* Column 3: Contact Info */}
           <div className="flex flex-col gap-3">
-            <h4 className="font-playfair font-bold text-white text-lg mb-1">Contact</h4>
+            <h4 className="font-playfair font-bold text-white text-lg mb-2">Contact</h4>
             <div className="flex items-start gap-2 text-sm">
-              <MapPin size={16} className="text-red mt-0.5 shrink-0" />
-              <span className="text-cream opacity-80">
+              <MapPin size={16} className="text-gold mt-0.5 shrink-0" />
+              <a
+                href={shopInfo.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cream/70 hover:text-gold transition-colors"
+              >
                 {shopInfo.address}, {shopInfo.city}
-              </span>
+              </a>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <Phone size={16} className="text-red shrink-0" />
+              <Phone size={16} className="text-gold shrink-0" />
               <a
                 href={`tel:${shopInfo.phone.replace(/\D/g, '')}`}
-                className="text-cream opacity-80 hover:opacity-100 transition-opacity"
+                className="text-cream/70 hover:text-gold transition-colors"
               >
                 {shopInfo.phone}
               </a>
             </div>
-            <div className="text-sm text-cream opacity-70 mt-1">
+            <div className="text-sm text-cream/60 mt-2 space-y-0.5">
               <p>Mon–Fri: 8:00 AM – 5:00 PM</p>
               <p>Sat: 8:00 AM – 2:00 PM</p>
               <p>Sun: Closed</p>
@@ -72,9 +81,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white border-opacity-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-xs text-cream opacity-60">
-          © 2025 Pacific Auto Repair. All rights reserved.
+      <div className="border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-xs text-cream/50">
+          © {new Date().getFullYear()} Pacific Auto Repair. All rights reserved.
         </div>
       </div>
     </footer>

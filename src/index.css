@@ -2,12 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #FAF7F2;
-  color: #4A5568;
+  background-color: #FAF6F0;
+  color: #52524E;
   font-family: 'Source Sans 3', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
+}
+
+/* Subtle entrance animation for sections */
+.section-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sectionFadeIn 0.7s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Warm image overlay for placeholders */
+.photo-placeholder {
+  position: relative;
+  background: linear-gradient(135deg, #E6DCD0 0%, #d4c5b3 50%, #C8992E22 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.04) 20px,
+    rgba(255,255,255,0.04) 40px
+  );
 }
